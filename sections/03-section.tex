@@ -1,0 +1,87 @@
+\section{Vyhodnotenie podľa princípov použiteľnosti}
+
+Používateľské rozhranie bolo analyzované aj z pohľadu základných princípov použiteľnosti, konkrétne podľa Nielsenových heuristík, ktoré predstavujú jeden z najčastejšie používaných prístupov pri hodnotení používateľských rozhraní \cite{nielsen}. 
+V kontexte informačných systémov zohráva použiteľnosť významnú úlohu pri efektívnom využívaní systému a ovplyvňuje produktivitu používateľov \cite{laudon}.
+
+\subsubsection*{1. Viditeľnosť stavu systému}
+
+Systém by mal používateľa priebežne informovať o tom, čo sa deje.
+
+\textbf{Hodnotenie:} Čiastočne splnené.  
+Pri niektorých operáciách (napr. vytvorenie záznamu alebo spisu) nie je vždy zrejmé, či operácia prebehla úspešne. Chýba výraznejšia spätná väzba (napr. notifikácia alebo zvýraznenie zmeny).
+
+\subsubsection*{2. Zhoda medzi systémom a reálnym svetom}
+
+Systém by mal používať pojmy a koncepty zrozumiteľné používateľovi.
+
+\textbf{Hodnotenie:} Čiastočne splnené.  
+Niektoré pojmy ako „vecná skupina“, „evidencia“ alebo „proces“ nemusia byť pre nového používateľa jednoznačné bez predchádzajúcej znalosti domény.
+
+\subsubsection*{3. Kontrola a sloboda používateľa}
+
+Používateľ by mal mať možnosť jednoducho vrátiť alebo opraviť svoje kroky.
+
+\textbf{Hodnotenie:} Slabo splnené.  
+Rozhranie neposkytuje explicitné možnosti návratu späť alebo zrušenia operácií, čo môže viesť k frustrácii pri chybných krokoch.
+
+\subsubsection*{4. Konzistentnosť a štandardy}
+
+Používateľ by nemal byť nútený premýšľať, či rôzne prvky znamenajú to isté.
+
+\textbf{Hodnotenie:} Splnené.  
+Tabuľky, formuláre a navigačné prvky majú konzistentný vzhľad a správanie naprieč celou aplikáciou.
+
+\subsubsection*{5. Prevencia chýb}
+
+Systém by mal predchádzať vzniku chýb.
+
+\textbf{Hodnotenie:} Čiastočne splnené.  
+Formuláre obsahujú validačné mechanizmy, avšak chýbajú vysvetlenia alebo odporúčania, ktoré by používateľa naviedli k správnemu vyplneniu.
+
+\subsubsection*{6. Rozpoznanie namiesto zapamätania}
+
+Používateľ by nemal byť nútený pamätať si informácie medzi krokmi.
+
+\textbf{Hodnotenie:} Slabo splnené.  
+Používateľ si musí pamätať, kde sa nachádzajú jednotlivé funkcie (napr. spustenie procesu), čo znižuje intuitívnosť systému.
+
+\subsubsection*{7. Flexibilita a efektívnosť používania}
+
+Systém by mal umožniť efektívnu prácu skúseným používateľom.
+
+\textbf{Hodnotenie:} Čiastočne splnené.  
+Pre skúseného používateľa je práca relatívne efektívna, avšak chýbajú skratky alebo zrýchlené postupy.
+
+\subsubsection*{8. Estetický a minimalistický dizajn}
+
+Rozhranie by nemalo obsahovať zbytočné informácie.
+
+\textbf{Hodnotenie:} Čiastočne splnené.  
+Niektoré obrazovky (najmä formuláre) obsahujú veľké množstvo polí, čo môže pôsobiť neprehľadne.
+
+\subsubsection*{9. Pomoc pri rozpoznaní, diagnostike a oprave chýb}
+
+Chybové hlášky by mali byť zrozumiteľné.
+
+\textbf{Hodnotenie:} Nedostatočne splnené.  
+Systém neposkytuje dostatočne detailné informácie o chybách ani návrhy na ich riešenie.
+
+\subsubsection*{10. Pomoc a dokumentácia}
+
+Systém by mal poskytovať pomoc používateľovi.
+
+\textbf{Hodnotenie:} Nesplnené.  
+V aplikácii chýba integrovaná pomoc, onboarding alebo dokumentácia priamo v rozhraní.
+
+\subsubsection*{Zhrnutie hodnotenia}
+
+Na základe vykonanej analýzy možno konštatovať, že používateľské rozhranie je funkčné a konzistentné, avšak vykazuje nedostatky najmä v oblasti používateľskej podpory, navigácie a spätnej väzby.
+
+Najvýznamnejšie nedostatky boli identifikované v oblastiach:
+\begin{itemize}
+    \item viditeľnosť stavu systému,
+    \item používateľské vedenie (guidance),
+    \item pomoc a dokumentácia.
+\end{itemize}
+
+Tieto nedostatky môžu mať negatívny vplyv najmä na menej skúsených používateľov a znižovať celkovú použiteľnosť systému.

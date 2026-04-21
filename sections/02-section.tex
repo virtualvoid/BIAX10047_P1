@@ -1,5 +1,335 @@
-﻿\section{Návrh riešenia}
+﻿\section{Testovanie používateľského rozhrania}
 
-\subsection*{Architektúra systému}
-\
+\subsection{Predmet testovania}
+Predmetom testovania je webová aplikácia typu DMS (Document Management System), ktorá umožňuje správu evidencií, vecných skupín, záznamov a procesov nad týmito záznamami. 
+Aplikácia poskytuje používateľské rozhranie pre vytváranie, evidenciu a spracovanie dokumentov vrátane workflow mechanizmov.
+
+\subsection{Cieľ testovania}
+Cieľom testovania je overiť použiteľnosť používateľského rozhrania pri vykonávaní základných operácií, najmä:
+\begin{itemize}
+    \item orientácia v systéme a navigácia medzi modulmi,
+    \item vytváranie evidenčných entít (vecné skupiny, druhy evidencií, ročníky),
+    \item zakladanie záznamov,
+    \item spúšťanie procesov nad záznamami,
+    \item spracovanie používateľských úloh.
+\end{itemize}
+
+\subsection{Definované persony}
+\begin{itemize}
+    \item \textbf{Bežný používateľ} – používa systém na evidenciu dokumentov, očakáva jednoduché a intuitívne rozhranie.
+    \item \textbf{Administrátor} – nastavuje číselníky a evidencie, očakáva presnosť a kontrolu nad dátami.
+    \item \textbf{Menej skúsený používateľ} – má obmedzené skúsenosti s podobnými systémami, môže mať problém s orientáciou.
+\end{itemize}
+
+\subsection{Scenáre použitia}
+
+\subsubsection*{Scenár 1: Správa číselníkov}
+Používateľ prechádza do sekcie vecných skupín a evidencií, kde vytvára nové položky.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/02-vecne_skupiny.png}
+\caption{Zoznam vecných skupín}
+\end{figure}
+
+\textbf{Pozorovanie:} Rozhranie je prehľadné, avšak nie je vždy jednoznačné, kde sa nachádza tlačidlo na vytvorenie novej položky.
+
+\subsubsection*{Scenár 2: Vytvorenie záznamu}
+
+Používateľ vytvára nový záznam v systéme.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/14-novy_zaznam.png}
+\caption{Formulár pre vytvorenie záznamu}
+\end{figure}
+
+\textbf{Pozorovanie:} Formulár obsahuje viacero polí, ktoré nie sú vždy dostatočne vysvetlené. Používateľ môže mať problém pochopiť význam niektorých atribútov.
+
+\subsubsection*{Scenár 3: Spustenie procesu}
+
+Používateľ spúšťa proces nad existujúcim záznamom.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/17-spustenie_procesu_nad_zaznamom.png}
+\caption{Spustenie procesu nad záznamom}
+\end{figure}
+
+\textbf{Pozorovanie:} Spustenie procesu je funkčné, ale nie úplne intuitívne – používateľ musí vedieť, kde túto akciu nájde.
+
+\subsubsection*{Scenár 4: Spracovanie úlohy}
+
+Používateľ spracováva pridelenú úlohu.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/20-vybavit_ulohu.png}
+\caption{Spracovanie úlohy}
+\end{figure}
+
+\textbf{Pozorovanie:} Rozhranie obsahuje potrebné informácie, avšak niektoré kroky nie sú explicitne vedené, čo môže viesť k neistote používateľa.
+
+\subsection{Testovacie úlohy}
+
+\begin{tabular}{|l|l|l|}
+\hline
+Úloha & Popis & Kritérium splnenia \\
+\hline
+Vytvorenie vecnej skupiny & Používateľ vytvorí novú položku & Položka uložená \\
+\hline
+Vytvorenie záznamu & Vyplnenie formulára & Záznam existuje v zozname \\
+\hline
+Spustenie procesu & Spustenie workflow & Proces sa zobrazí v zozname \\
+\hline
+Spracovanie úlohy & Dokončenie úlohy & Stav sa zmení \\
+\hline
+\end{tabular}
+
+\subsection{Dotazník}
+Používateľom boli položené nasledovné otázky:
+\begin{itemize}
+    \item Bolo rozhranie prehľadné?
+    \item Vedeli ste, čo máte urobiť v jednotlivých krokoch?
+    \item Narazili ste na problém alebo nejasnosť?
+    \item Čo by ste zlepšili?
+\end{itemize}
+
+\subsection{Opis výsledkov testovania}
+
+\begin{tabular}{|l|l|l|l|}
+\hline
+Úloha & Čas & Výsledok & Poznámky \\
+\hline
+Vecná skupina & krátky & splnené & problém nájsť tlačidlo \\
+\hline
+Záznam & stredný & splnené & nejasné polia \\
+\hline
+Proces & dlhší & čiastočne & slabá navigácia \\
+\hline
+Úloha & krátky & splnené & chýba vedenie \\
+\hline
+\end{tabular}
+
+\subsection{Záver}
+
+\textbf{Pozitívne aspekty:}
+\begin{itemize}
+    \item konzistentný dizajn,
+    \item relatívne prehľadné tabuľky,
+    \item funkčné workflow procesy.
+\end{itemize}
+
+\textbf{Negatívne aspekty:}
+\begin{itemize}
+    \item nie vždy intuitívna navigácia,
+    \item nedostatočné popisy polí,
+    \item absencia používateľského vedenia (guidance).
+\end{itemize}
+
+\textbf{Odporúčania:}
+\begin{itemize}
+    \item doplniť tooltipy alebo popisy polí,
+    \item zvýrazniť primárne akcie (napr. tlačidlo „Nový“),
+    \item pridať onboarding alebo pomoc pre používateľov.
+\end{itemize}
+
+% ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\subsection{Detailnejšia analýza používateľského rozhrania}
+
+\subsubsection*{Úvodná obrazovka a navigácia}
+
+Používateľ po prihlásení vidí hlavnú dashboard obrazovku, ktorá slúži ako vstupný bod do jednotlivých modulov systému.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/01-dashboard.png}
+\caption{Dashboard aplikácie}
+\end{figure}
+
+\textbf{Pozorovanie:} Dashboard poskytuje základný prehľad, avšak neobsahuje výrazné navigačné prvky, ktoré by používateľa intuitívne nasmerovali na najčastejšie používané akcie.
+
+% --------------------------------------------------
+
+\subsubsection*{Správa vecných skupín}
+
+Používateľ spravuje vecné skupiny ako základnú klasifikačnú entitu systému.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/02-vecne_skupiny.png}
+\caption{Zoznam vecných skupín}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/03-zalozenie_vecnej_skupiny.png}
+\caption{Založenie vecnej skupiny}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/04-vecne_skupiny_nova.png}
+\caption{Vytvorenie novej vecnej skupiny}
+\end{figure}
+
+\textbf{Pozorovanie:} Proces vytvorenia novej vecnej skupiny je funkčný, ale používateľ nemusí na prvý pohľad identifikovať tlačidlo na pridanie novej položky.
+
+% --------------------------------------------------
+
+\subsubsection*{Správa druhov evidencií}
+
+Používateľ definuje druhy evidencií, ktoré slúžia ako základ pre ďalšiu evidenciu dokumentov.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/05-zoznam_druhov_evidencii.png}
+\caption{Zoznam druhov evidencií}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/06-novy_druh_evidencie.png}
+\caption{Vytvorenie nového druhu evidencie}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/07_zoznam_druhov_evidencii_nova.png}
+\caption{Zoznam evidencií po pridaní novej položky}
+\end{figure}
+
+\textbf{Pozorovanie:} Rozhranie je konzistentné, avšak chýbajú pomocné popisy, ktoré by vysvetlili význam jednotlivých polí.
+
+% --------------------------------------------------
+
+\subsubsection*{Správa ročníkov}
+
+Používateľ spravuje ročníky pre jednotlivé evidencie.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/08_zoznam_rocnikov.png}
+\caption{Zoznam ročníkov}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/09-zalozenie_rocnika_pre_evidenciu.png}
+\caption{Založenie ročníka}
+\end{figure}
+
+\textbf{Pozorovanie:} Navigácia medzi evidenciou a ročníkmi nie je úplne intuitívna a vyžaduje pochopenie štruktúry systému.
+
+% --------------------------------------------------
+
+\subsubsection*{Správa spisov}
+
+Spisy predstavujú organizačnú jednotku pre záznamy.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/10-zoznam_spisov.png}
+\caption{Zoznam spisov}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/11-zalozenie_spisu.png}
+\caption{Založenie spisu}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/10-zoznam_spisov.png}
+\caption{Zoznam spisov po vytvorení nového}
+\end{figure}
+
+\textbf{Pozorovanie:} Používateľský tok je relatívne priamy, avšak systém neposkytuje spätnú väzbu po úspešnom vytvorení.
+
+% --------------------------------------------------
+
+\subsubsection*{Správa záznamov}
+
+Záznamy sú hlavnou entitou systému.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/13-zoznam_zaznamov.png}
+\caption{Zoznam záznamov}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/14-novy_zaznam.png}
+\caption{Vytvorenie záznamu}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/15-zoznam__novy.png}
+\caption{Zoznam záznamov po vytvorení nového}
+\end{figure}
+
+\textbf{Pozorovanie:} Formulár obsahuje veľa polí bez vysvetlenia, čo môže viesť k chybám alebo nepochopeniu.
+
+% --------------------------------------------------
+
+\subsubsection*{Procesy a workflow}
+
+Používateľ pracuje s procesmi nad záznamami.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/16-novy_proces.png}
+\caption{Vytvorenie procesu}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/17-spustenie_procesu_nad_zaznamom.png}
+\caption{Spustenie procesu}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/18-zoznam_procesov-proces_spusteny.png}
+\caption{Zoznam procesov}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/21-stav_procesu.png}
+\caption{Stav procesu}
+\end{figure}
+
+\textbf{Pozorovanie:} Workflow je funkčný, ale vyžaduje znalosti systému. Pre nového používateľa môže byť neprehľadný.
+
+% --------------------------------------------------
+
+\subsubsection*{Používateľské úlohy}
+
+Používateľ spracováva úlohy generované procesmi.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/19-zoznam_priradenych_uloh.png}
+\caption{Zoznam priradených úloh}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/20-vybavit_ulohu.png}
+\caption{Spracovanie úlohy}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/20-vybavit_ulohu_dalsia_uloha.png}
+\caption{Spracovanie ďalšej úlohy}
+\end{figure}
+
+\textbf{Pozorovanie:} Rozhranie je funkčné, ale chýba jasné vedenie používateľa krok za krokom.
+
 \clearpage
